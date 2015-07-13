@@ -745,7 +745,7 @@ func (f *file) lintTypeDoc(t *ast.TypeSpec, doc *ast.CommentGroup) {
 		return
 	}
 	if doc == nil {
-		f.errorf(t, 1, link(docCommentsLink), category("comments"), "exported type %v should have comment or be unexported", t.Name)
+		f.errorf(t, 1, link(docCommentsLink), category("comments"), "exported type %v should have a comment or be unexported", t.Name)
 		return
 	}
 
@@ -800,7 +800,7 @@ func (f *file) lintFuncDoc(fn *ast.FuncDecl) {
 		name = recv + "." + name
 	}
 	if fn.Doc == nil {
-		f.errorf(fn, 1, link(docCommentsLink), category("comments"), "exported %s %s should have comment or be unexported", kind, name)
+		f.errorf(fn, 1, link(docCommentsLink), category("comments"), "exported %s %s should have a comment or be unexported", kind, name)
 		return
 	}
 	s := fn.Doc.Text()
@@ -841,7 +841,7 @@ func (f *file) lintValueSpecDoc(vs *ast.ValueSpec, gd *ast.GenDecl, genDeclMissi
 			if kind == "const" && gd.Lparen.IsValid() {
 				block = " (or a comment on this block)"
 			}
-			f.errorf(vs, 1, link(docCommentsLink), category("comments"), "exported %s %s should have comment%s or be unexported", kind, name, block)
+			f.errorf(vs, 1, link(docCommentsLink), category("comments"), "exported %s %s should have a comment%s or be unexported", kind, name, block)
 			genDeclMissingComments[gd] = true
 		}
 		return

@@ -8,7 +8,7 @@ const (
 	// MATCH /InlineWhatever.*form/
 	InlineWhatever = "blah"
 
-	Whatsit = "missing_comment" // MATCH /Whatsit.*should have comment.*block/
+	Whatsit = "missing_comment" // MATCH /Whatsit.*should have a comment.*block/
 
 	// We should only warn once per block for missing comments,
 	// but always complain about malformed comments.
@@ -29,8 +29,8 @@ const (
 
 // The comment on the previous const block shouldn't flow through to here.
 
-const UndocAgain = 6 // MATCH /UndocAgain.*should have comment/
+const UndocAgain = 6 // MATCH /UndocAgain.*should have a comment/
 
 const (
-	SomeUndocumented = 7 // MATCH /SomeUndocumented.*should have comment.*block/
+	SomeUndocumented = 7 // MATCH /SomeUndocumented.*should have a comment.*block/
 )
